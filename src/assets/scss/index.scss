@@ -1,0 +1,45 @@
+@import "./title.scss";
+@import "./colors.scss";
+
+@mixin quiz {
+  padding: 24px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgb(41, 109, 228, 0.2);
+  h1 {
+    color: #505050;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .response {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    button,
+    .btn {
+      height: 45px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      border-radius: 5px;
+      background: #1498d5;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      box-shadow: 0 5px 5px rgba(18, 52, 68, 0.1);
+      transition: 0.4s ease-in;
+      &:hover {
+        background: #188abe;
+        box-shadow: 0 6px 6px rgba(18, 52, 68, 0.3),
+          0 -2px 4px rgba(18, 52, 68, 0.2);
+      }
+      &:last-child {
+        margin-left: 15px;
+      }
+    }
+  }
+}

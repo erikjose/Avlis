@@ -1,29 +1,57 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: Home
+    path: "/",
+    name: "home",
+    component: () => import("../views/Home/Home.vue")
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: "/trilhas",
+    name: "trilhas",
+    component: () => import("../views/Trilha/Post.vue")
+  },
+  {
+    path: "/profile",
+    name: "profile",
+    component: () => import("../views/Profile/Profile.vue"),
+    children: [
+      {
+        path: "/profile/quiz",
+        name: "quiz",
+        component: () => import("@/components/Quiz/StepOne.vue")
+      },
+      {
+        path: "/profile/quiz-2",
+        name: "quiz-two",
+        component: () => import("@/components/Quiz/StepTwo.vue")
+      },
+      {
+        path: "/profile/quiz-3",
+        name: "quiz-three",
+        component: () => import("@/components/Quiz/StepThree.vue")
+      },
+      {
+        path: "/profile/quiz-4",
+        name: "quiz-four",
+        component: () => import("@/components/Quiz/StepFour.vue")
+      },
+      {
+        path: "/profile/quiz-5",
+        name: "quiz-five",
+        component: () => import("@/components/Quiz/StepFive.vue")
+      }
+    ]
   }
-]
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
   routes
-})
+});
 
-export default router
+export default router;
